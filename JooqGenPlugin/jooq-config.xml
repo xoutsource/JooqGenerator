@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.8.0.xsd">
+    <jdbc>
+        <driver>org.sqlite.JDBC</driver>
+        <url>jdbc:sqlite:D:/temp/default.db</url>
+        <username></username>
+        <password></password>
+    </jdbc>
+
+    <generator>
+        <name>org.jooq.util.JavaGenerator</name>
+        <database>
+            <name>org.jooq.util.sqlite.SQLiteDatabase</name>
+            <customTypes>
+                <customType>
+                    <name>JSON</name>
+                    <type>com.google.gson.JsonElement</type>
+                    <binding>com.nana.plugins.jooqgen.JSONBinding</binding>
+                </customType>
+            </customTypes>
+            <forcedTypes>
+                <forcedType>
+                    <name>JSON</name>
+                    <expression>.*</expression>
+                    <types>.*JSON.*</types>
+                </forcedType>
+            </forcedTypes>
+        </database>
+
+        <generate>
+            <relations>true</relations>
+            <deprecated>false</deprecated>
+            <records>true</records>
+            <immutablePojos>true</immutablePojos>
+            <fluentSetters>true</fluentSetters>
+        </generate>
+
+        <target>
+            <packageName>com.yourcompany.jooq</packageName>
+            <encoding>UTF-8</encoding>
+            <directory>out/demo/</directory>
+        </target>
+    </generator>
+</configuration>

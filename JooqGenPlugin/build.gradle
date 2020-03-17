@@ -1,0 +1,23 @@
+archivesBaseName = 'JooqGenPlugin'
+description = 'Jooq generator plugin'
+
+ext {
+    jooqVersion = '3.10.5';
+}
+
+dependencies {
+    compile 'com.xos:xdk:0.0.1'
+    compile group: 'org.jooq', name: 'jooq', version: jooqVersion
+    compile group: 'org.jooq', name: 'jooq-codegen', version: jooqVersion
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    // MySQL
+    compile 'mysql:mysql-connector-java:8.0.19'
+    // SQLite
+    compile 'org.xerial:sqlite-jdbc:3.21.0.1'
+}
+
+task jooq(type: JavaExec) {
+    main = "org.jooq.util.GenerationTool"
+    args "jooq-config.xml"
+    classpath configurations.compile
+}

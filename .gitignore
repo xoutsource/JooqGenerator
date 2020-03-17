@@ -1,0 +1,14 @@
+# Project exclude paths
+
+### Gradle ###
+/**/.gradle/
+/**/gradle/
+
+### IDEA ###
+/**/.idea/
+/**/build/
+/**/out/
+
+### log ###
+/**/log/
+/**/*.log
